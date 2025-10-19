@@ -21,6 +21,10 @@ https://domin.ir/botmirzapanel/table.php
 ---
 
 
+![حل مشکل عدم نمایش](https://raw.githubusercontent.com/Mmd-Amir/mirza_pro_stable/refs/heads/main/amozsh/photo_2025-10-20_00-47-30.jpg)
+
+---
+
 ## 📚 رفع مشکل "⭕️ موقعیتی یافت نشد در صورت بروز این مشکل با پشتیبانی تماس بگیرید"
 ---
 
