@@ -3,7 +3,7 @@
 ---
 
 ---
-(https://raw.githubusercontent.com/Mmd-Amir/mirza_pro_stable/refs/heads/main/amozsh/photo_2025-10-19_21-22-54.jpg)
+![عکس نمونه آموزش](https://raw.githubusercontent.com/Mmd-Amir/mirza_pro_stable/refs/heads/main/amozsh/photo_2025-10-19_21-22-54.jpg)
 ---
 
 ## 📚 حل مشکل عدم نمایش
