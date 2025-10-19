@@ -43,6 +43,7 @@ if(isset($uPOST['submit']) && $uPOST['submit']) {
     $dbInfo['username'] = $uPOST['database_username'];
     $dbInfo['password'] = $uPOST['database_password'];
     $document['address'] = dirname($uPOST['bot_address_webhook']);
+    $panel_type = $uPOST['panel_type'] ?? 'pasargad';
 
     if($_SERVER['REQUEST_SCHEME'] != 'https') {
         $ERROR[] = 'برای فعال سازی ربات تلگرام نیازمند فعال بودن SSL (https) هستید';
@@ -98,6 +99,11 @@ if(isset($uPOST['submit']) && $uPOST['submit']) {
         ];
 
         $newConfigData = str_replace(array_keys($replacements),array_values($replacements),$rawConfigData,$count);
+        
+        if ($panel_type === 'marzban') {
+            $newConfigData = preg_replace('/\s*\n\s*\$new_marzban\s*=\s*true;\s*\n\s*/', "\n", $newConfigData);
+        }
+        
         if(file_put_contents($configDirectory,$newConfigData) === false || $count == 0) {
             $ERROR[] = '✏️❌ خطا در زمان بازنویسی اطلاعات فایل اصلی ربات';
             $ERROR[] = "فایل های پروژه را مجددا دانلود و بارگذاری کنید (<a href='https://github.com/mahdiMGF2/botmirzapanel'>‎🌐 Github</a>)";
@@ -182,6 +188,13 @@ if(isset($uPOST['submit']) && $uPOST['submit']) {
                     <label for="database_name">نام دیتابیس :</label>
                     <input type="text" id="database_name" name="database_name" 
                            placeholder="DATABASE NAME" value="<?php echo $uPOST['database_name'] ?? ''; ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="panel_type">نوع پنل:</label>
+                    <select id="panel_type" name="panel_type" required>
+                        <option value="pasargad" <?php echo ($uPOST['panel_type'] ?? 'pasargad') === 'pasargad' ? 'selected' : ''; ?>>پنل پاسارگارد</option>
+                        <option value="marzban" <?php echo ($uPOST['panel_type'] ?? '') === 'marzban' ? 'selected' : ''; ?>>پنل مرزبان</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <details>
